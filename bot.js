@@ -12,8 +12,13 @@ const log = console.log;
 const express = require('express')
 const app = express()
 
-app.listen(1337, function () {
-  console.log('Listening on port 1337 so Heroku doesn\'t error for some fucking reason');
+app.set('port', (process.env.PORT || 5000));
+
+app.get('/', function(request, response) {
+    var result = 'App is running'
+    response.send(result);
+}).listen(app.get('port'), function() {
+    console.log('Avoiding error. Listening on port ', app.get('port') + ".");
 });
 
 const bot = new Discord.Client({ disableEveryone: true });
