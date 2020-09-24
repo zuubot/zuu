@@ -21,8 +21,8 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(rembed)
 
         .then(bot.destroy())
-        .then(bot.login(process.env.DISCORD_BOT_TOKEN))
-        .then(await bot.user.setActivity(`with ${bot.users.size} people. | -help`, { type: 'PLAYING' }))
+        await bot.login(process.env.DISCORD_BOT_TOKEN)
+        await bot.user.setActivity(`with ${bot.users.size} people. | -help`, { type: 'PLAYING' })
         let rsembed = new Discord.RichEmbed()
         .setTitle("Successfully restarted.")
         .setColor(process.env.C_BLUE)
