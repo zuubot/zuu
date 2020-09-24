@@ -10,6 +10,7 @@ module.exports.run = async (bot, message, args) => {
         .setColor(process.env.C_RED)
         .setDescription(`You don't have permission to restart the bot.`)
         .setTimestamp()
+        return message.channel.send(embed)
     }
 
     let rembed = new Discord.RichEmbed()
@@ -20,8 +21,8 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(rembed)
 
         .then(bot.destroy())
-        .then(bot.login(token))
-        .then(bot.user.setActivity(`with ${bot.users.size} people. | -help`, { type: 'PLAYING' }))
+        .then(bot.login(process.env.DISCORD_BOT_TOKEN))
+        .then(await bot.user.setActivity(`with ${bot.users.size} people. | -help`, { type: 'PLAYING' }))
         let rsembed = new Discord.RichEmbed()
         .setTitle("Successfully restarted.")
         .setColor(process.env.C_BLUE)
