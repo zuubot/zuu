@@ -1,8 +1,0 @@
-0 | Exclusively heterosexual
-1 | Predominantly heterosexual, only incidentally homosexual
-2 | Predominantly heterosexual, but more than incidentally homosexual
-3 | Equally heterosexual and homosexual
-4 | Predominantly homosexual, but more than incidentally heterosexual
-5 | Predominantly homosexual, only incidentally heterosexual
-6 | Exclusively homosexual
-X | No socio-sexual contacts or reactions
