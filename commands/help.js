@@ -35,7 +35,7 @@ module.exports.run = async (bot, message, args) => {
 .addField("\\🔧 Utility", `\`\`\`
 -avatar     | Sends your or another users avatar.
 \`\`\``)
-  .setFooter(`More commands coming soon. Bot made by zuoa#1111.`)
+  .setFooter(`zuubot.github.io`)
 message.author.send(help);
 message.react("📬")
 }

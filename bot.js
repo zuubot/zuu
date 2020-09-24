@@ -4,12 +4,17 @@ import chalk from 'chalk';
 import dotenv from 'dotenv';
 import { CronJob } from 'cron';
 import './db';
-
 import weeklyStatCron from './utils/weeklyStatCron';
 
 dotenv.config();
 
 const log = console.log;
+const express = require('express')
+const app = express()
+
+app.listen(1337, function () {
+  console.log('Listening on port 1337 so Heroku doesn\'t error for some fucking reason');
+});
 
 const bot = new Discord.Client({ disableEveryone: true });
 bot.commands = new Discord.Collection();
