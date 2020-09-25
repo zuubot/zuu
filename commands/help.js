@@ -29,11 +29,15 @@ module.exports.run = async (bot, message, args) => {
 -ban        | Bans a mentioned user.
 -kick       | Kicks a mentioned user.
 -purge      | Mass-deletes messages.
+-mute       | Mute a user for a certain amount of time.
+-unmute     | Unmutes a user.
 -warn       | Warn a user.
 -warns      | Check a users warns.
 \`\`\``)
 .addField("\\🔧 Utility", `\`\`\`
 -avatar     | Sends your or another users avatar.
+-botinfo    | Fetches info on the bot.
+-userinfo   | Fetches info on a user.
 \`\`\``)
   .setFooter(`zuubot.github.io`)
 message.author.send(help);

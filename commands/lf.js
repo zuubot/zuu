@@ -38,35 +38,27 @@ module.exports.run = async (bot, message, args) => {
           .setDescription(`\`\`\`
 ${process.env.PREFIX}lf set     | Sets your last.fm username.
 Usage: ${process.env.PREFIX}lf set zuoa
-Aliases: None.
 
 ${process.env.PREFIX}lf delete  | Removes your last.fm username.
 Usage: ${process.env.PREFIX}lf delete
-Aliases: ${process.env.PREFIX}lf reset
 
 ${process.env.PREFIX}lf info    | Shows Last.FM account information
 Usage: ${process.env.PREFIX}lf info
-Aliases: None.
 
 ${process.env.PREFIX}fm         | Shows currently playing song or latest scrobble.
 Usage: ${process.env.PREFIX}fm
-Aliases: None.
 
 ${process.env.PREFIX}lf recent  | Shows 10 most recent tracks played.
 Usage: ${process.env.PREFIX}lf recent
-Aliases: None.
 
 ${process.env.PREFIX}lf tracks  | Shows most played tracks.
 Usage: ${process.env.PREFIX}lf tracks zuoa month
-Aliases: ${process.env.PREFIX}lf ttr
 
 ${process.env.PREFIX}lf artists | Shows most listened artists
 Usage: ${process.env.PREFIX}lf artists zuoa week
-Aliases: ${process.env.PREFIX}lf tar
 
 ${process.env.PREFIX}lf albums  | Shows most played albums
 Usage: ${process.env.PREFIX}lf albums zuoa 90
-Aliases: ${process.env.PREFIX}lf tal
 \`\`\``)
           .addField(
             'Command Paramaters',

@@ -50,6 +50,13 @@ bot.on('ready', async () => {
   bot.user.setActivity(`with ${bot.users.size} people. | -help`, { type: 'PLAYING' });
 });
 
+bot.on('guildCreate', newGuild => {
+  bot.user.setActivity(`with ${bot.users.size} people. | -help`, { type: 'PLAYING' });
+})  
+
+bot.on("guildDelete", guild => {
+  bot.user.setActivity(`with ${bot.users.size} people. | -help`, { type: 'PLAYING' });
+})
 bot.on('message', async message => {
   if (!message.content.startsWith(process.env.PREFIX)) return
   if (message.author.bot) return;
