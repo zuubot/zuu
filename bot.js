@@ -56,6 +56,21 @@ bot.on('guildCreate', newGuild => {
 bot.on("guildDelete", guild => {
   bot.user.setActivity(`with ${bot.users.size} people. | -help`, { type: 'PLAYING' });
 })
+
+bot.on('guildMemberAdd', member => {
+if (!member.guild.id === "758826221601161256") return
+let wrole = member.guild.roles.find(r => r.name === 'Members');
+member(user.user.id).addRole(wrole)
+let channel = member.guild.channels.find(ch => ch.name === 'general');
+channel.send("<@" + member.id + ">")
+let embed = new Discord.RichEmbed()
+.setTitle(`Welcome!`)
+.setThumbnail(`https://hotemoji.com/images/dl/b/waving-hand-sign-emoji-by-twitter.png`)
+.setColor(process.env.C_BLUE)
+.setDescription("<@" + member.id + "> just joined.\nSay hi!")
+.setTimestamp()
+message.channel.send(embed)
+});
 bot.on('message', async message => {
   if (!message.content.startsWith(process.env.PREFIX)) return
   if (message.author.bot) return;

@@ -12,7 +12,6 @@ module.exports.run = async (bot, message, args) => {
 -coinflip   | Flips a coin for you.
 -dog        | Fetches you a picture of a dog.
 -cat        | Fetches you a picture of a cat.
--gay        | Check how gay someone is.
 \`\`\``)
   .addField("\\📻 last.fm", `\`\`\`
 -lf help    | Gives you more information on the last.fm.
