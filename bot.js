@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import { CronJob } from 'cron';
 import './db';
 import weeklyStatCron from './utils/weeklyStatCron';
+require('newrelic');
 
 dotenv.config();
 

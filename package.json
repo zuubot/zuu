@@ -31,6 +31,7 @@
     "fs": "0.0.1-security",
     "lowdb": "^1.0.0",
     "ms": "^2.1.2",
+    "newrelic": "^6.13.1",
     "nodemon": "^2.0.2",
     "pluralize": "^8.0.0",
     "superagent": "^6.1.0"
