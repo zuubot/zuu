@@ -4,6 +4,26 @@ import dotenv from 'dotenv';
 dotenv.config()
 
 module.exports.run = async (bot, message, args) => {
+var muterole = message.guild.roles.find(r => r.name === "Muted");
+
+  if(!muterole){
+    try{
+        muterole = await message.guild.createRole({
+        name: "Muted",
+        color: "#000001",
+        permissions:[]
+      })
+      message.guild.channels.forEach(async (channel, id) => {
+        await channel.overwritePermissions(muterole, {
+          SEND_MESSAGES: false,
+          ADD_REACTIONS: false
+        });
+      });
+    }catch(e){
+      console.log(e.stack);
+    }
+  }
+
   let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!tomute) {
     let embed = new Discord.RichEmbed()
@@ -38,8 +58,8 @@ module.exports.run = async (bot, message, args) => {
     .setTimestamp()
     return message.channel.send(embed);
   } 
-  const muterole = message.guild.roles.find(r => r.name === "Muted");
-  if(tomute.roles.has(muterole.id)){
+
+  if(tomute.roles.has(muterole.id)) {
     let embed = new Discord.RichEmbed()
     .setTitle("Error")
     .setTimestamp()
@@ -47,24 +67,6 @@ module.exports.run = async (bot, message, args) => {
     .setDescription(`User already muted.`)
     return message.channel.send(embed);
 }
-
-  if(!muterole){
-    try{
-      muterole = await message.guild.createRole({
-        name: "Muted",
-        color: "#000001",
-        permissions:[]
-      })
-      message.guild.channels.forEach(async (channel, id) => {
-        await channel.overwritePermissions(muterole, {
-          SEND_MESSAGES: false,
-          ADD_REACTIONS: false
-        });
-      });
-    }catch(e){
-      console.log(e.stack);
-    }
-  }
 
   let mutetime = args[1];
   if(!mutetime){

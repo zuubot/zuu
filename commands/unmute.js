@@ -38,8 +38,6 @@ module.exports.run = async (bot, message, args) => {
         .setColor(process.env.C_PINK)
         message.channel.send(embed);
 
-        message.delete();
-
      }
     
         module.exports.help = {
