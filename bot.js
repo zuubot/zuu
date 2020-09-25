@@ -60,7 +60,7 @@ bot.on("guildDelete", guild => {
 bot.on('guildMemberAdd', member => {
 if (!member.guild.id === "758826221601161256") return
 let wrole = member.guild.roles.find(r => r.name === 'Members');
-member(user.user.id).addRole(wrole)
+member(member.user.id).addRole(wrole)
 let channel = member.guild.channels.find(ch => ch.name === 'general');
 channel.send("<@" + member.id + ">")
 let embed = new Discord.RichEmbed()
