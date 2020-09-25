@@ -5,7 +5,6 @@ import dotenv from 'dotenv';
 import { CronJob } from 'cron';
 import './db';
 import weeklyStatCron from './utils/weeklyStatCron';
-require('newrelic');
 
 dotenv.config();
 
@@ -16,10 +15,10 @@ const app = express()
 app.set('port', (process.env.PORT || 5000));
 
 app.get('/', function(request, response) {
-    var result = 'App is running'
+    var result = 'App is running.'
     response.send(result);
 }).listen(app.get('port'), function() {
-    console.log('Avoiding error. Listening on port ', app.get('port') + ".");
+    console.log('Avoiding heroku errors by listening on port: ', app.get('port') + ".");
 });
 
 const bot = new Discord.Client({ disableEveryone: true });
