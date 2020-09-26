@@ -34,7 +34,8 @@ module.exports.run = async (bot, message, args) => {
 -unjail     | Un-jails a user.
 -warn       | Warn a user.
 -warns      | Check a users warns.
--lock       | Either lock or unlock a channel.
+-lock       | Locks a channel.
+-unlock     | Unlocks a channel.
 \`\`\``)
 .addField("\\🔧 Utility", `\`\`\`
 -avatar     | Sends your or another users avatar.
