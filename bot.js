@@ -58,17 +58,18 @@ bot.on("guildDelete", guild => {
 })
 
 bot.on('guildMemberAdd', async (member, message) => {
-if (!member.guild.id === "758826221601161256") return
-let wrole = member.guild.roles.find(r => r.name === 'Members');
-member.addRole(wrole)
-let channel = member.guild.channels.find(ch => ch.name === 'general');
-let embed = new Discord.RichEmbed()
-.setTitle(`Welcome!`)
-.setThumbnail(`https://hotemoji.com/images/dl/b/waving-hand-sign-emoji-by-twitter.png`)
-.setColor(process.env.C_PINK)
-.setDescription(`<@${member.id}> just joined.\nSay hi!`)
-.setTimestamp()
-channel.send(embed)
+if (member.guild.id === "758826221601161256") {
+  let wrole = member.guild.roles.find(r => r.name === 'Members');
+  member.addRole(wrole)
+  let channel = member.guild.channels.find(ch => ch.name === 'general');
+  let embed = new Discord.RichEmbed()
+  .setTitle(`Welcome!`)
+  .setThumbnail(`https://hotemoji.com/images/dl/b/waving-hand-sign-emoji-by-twitter.png`)
+  .setColor(process.env.C_PINK)
+  .setDescription(`<@${member.id}> just joined.\nSay hi!`)
+  .setTimestamp()
+  return channel.send(embed)
+  }
 });
 
 bot.on('message', async message => {
