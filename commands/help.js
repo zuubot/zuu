@@ -30,6 +30,8 @@ module.exports.run = async (bot, message, args) => {
 -purge      | Mass-deletes messages.
 -mute       | Mute a user for a certain amount of time.
 -unmute     | Unmutes a user.
+-jail       | Jail's a user.
+-unjail     | Un-jails a user.
 -warn       | Warn a user.
 -warns      | Check a users warns.
 \`\`\``)
@@ -37,8 +39,9 @@ module.exports.run = async (bot, message, args) => {
 -avatar     | Sends your or another users avatar.
 -botinfo    | Fetches info on the bot.
 -userinfo   | Fetches info on a user.
+-serverinfo | Fetches info on a server.
 \`\`\``)
-  .setFooter(`zuubot.github.io`)
+  .setFooter(`Need more help? Go to zuubot.github.io and join our Discord.`)
 message.author.send(help);
 message.react("📬")
 }

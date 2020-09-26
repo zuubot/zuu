@@ -23,19 +23,12 @@ if (member.user.bot === true) {
                 .setTitle(member.user.tag)
                 .setThumbnail(member.user.displayAvatarURL)
                 .setColor(process.env.C_BLUE)
-
-                .setDescription(`**Nickname:**
-${member.nickname !== null ? `${member.nickname}` : "N/A"}
-**Bot:**
-${bot}
-**Status:**
-${status[member.user.presence.status]}
-**Currently Playing:**
-${member.user.presence.game ? `${member.user.presence.game.name}` : "N/A"}
-**Created At:** 
-${member.user.createdAt}
-**Roles:**
-${member.roles.filter(r => r.id !== message.guild.id).sort((roleA, roleB) => roleB.position - roleA.position).map(roles => `<@&${roles.id}>`).join(" ") || "N/A"}`)
+                .addField(`Nickname:`, member.nickname !== null ? `${member.nickname}` : "N/A")
+                .addField(`Bot:`, bot)
+                .addField(`Status:`, status[member.user.presence.status])
+                .addField(`Current Activity:`, member.user.presence.game ? `${member.user.presence.game.name}` : "N/A")
+                .addField(`Created At:`, member.user.createdAt.toLocaleString())
+                .addField(`Roles:`, member.roles.filter(r => r.id !== message.guild.id).sort((roleA, roleB) => roleB.position - roleA.position).map(roles => `<@&${roles.id}>`).join(" ") || "N/A")
                 .setFooter(`ID: ` + member.user.id)
                 .setTimestamp()
     
