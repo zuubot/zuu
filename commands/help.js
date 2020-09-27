@@ -38,10 +38,10 @@ z.lock       | Locks a channel.
 z.unlock     | Unlocks a channel.
 \`\`\``)
 .addField("\\🔧 Utility", `\`\`\`
--avatar     | Sends your or another users avatar.
--botinfo    | Fetches info on the bot.
--userinfo   | Fetches info on a user.
--serverinfo | Fetches info on a server.
+z.avatar     | Sends your or another users avatar.
+z.botinfo    | Fetches info on the bot.
+z.userinfo   | Fetches info on a user.
+z.serverinfo | Fetches info on a server.
 \`\`\``)
   .setFooter(`Need more help? Go to zuubot.github.io and join our Discord.`)
 message.author.send(help);

@@ -46,19 +46,19 @@ bot.on('ready', async () => {
     '] ' +
     chalk.white(`Connected to Discord. Currently in: ${bot.guilds.size} server(s) with ${bot.users.size} people.`)
   ));
-  bot.user.setActivity(`with ${bot.users.size} people. | s.help`, { type: 'PLAYING' });
+  bot.user.setActivity(`with ${bot.users.size} people. | z.help`, { type: 'PLAYING' });
 });
 
 bot.on('guildCreate', newGuild => {
-  bot.user.setActivity(`with ${bot.users.size} people. | s.help`, { type: 'PLAYING' });
+  bot.user.setActivity(`with ${bot.users.size} people. | z.help`, { type: 'PLAYING' });
 })  
 
 bot.on("guildDelete", guild => {
-  bot.user.setActivity(`with ${bot.users.size} people. | s.help`, { type: 'PLAYING' });
+  bot.user.setActivity(`with ${bot.users.size} people. | z.help`, { type: 'PLAYING' });
 })
 
 bot.on('guildMemberAdd', async (member, message) => {
-bot.user.setActivity(`with ${bot.users.size} people. | s.help`, { type: 'PLAYING' });
+bot.user.setActivity(`with ${bot.users.size} people. | z.help`, { type: 'PLAYING' });
 if (member.guild.id === "758826221601161256") {
   let wrole = member.guild.roles.find(r => r.name === 'Members');
   member.addRole(wrole)
