@@ -2,9 +2,7 @@ import Discord from 'discord.js';
 import fs from 'fs';
 import chalk from 'chalk';
 import dotenv from 'dotenv';
-import { CronJob } from 'cron';
 import './db';
-import weeklyStatCron from './utils/weeklyStatCron';
 
 dotenv.config();
 
@@ -85,16 +83,6 @@ bot.on('message', async message => {
   const commandFile = bot.commands.get(cmd.slice(process.env.PREFIX.length));
   if (commandFile) commandFile.run(bot, message, args);
 });
-
-new CronJob(
-  '0 12 * * 0',
-  () => {
-    weeklyStatCron(bot);
-  },
-  null,
-  true,
-  'America/Chicago'
-);
 
 bot.on('error', console.error);
 
