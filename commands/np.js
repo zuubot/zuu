@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
       .value();
     if (!dbUser) {
       return message.channel.send(
-        `Username not found. Please use -lf set to set your last.fm username.`
+        `Username not found. Please use z.lf set to set your last.fm username.`
       );
     }
     fmUser = dbUser.lastFM;

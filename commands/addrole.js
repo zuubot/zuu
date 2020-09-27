@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
     if (message.mentions.users.size < 1){
         let embed = new Discord.RichEmbed()
         .setColor(process.env.C_BLUE)
-        .setDescription(`**Usage:**\n\`-addrole @zuoa#1111 Owners\``)
+        .setDescription(`**Usage:**\n\`z.addrole @zuoa#1111 Owners\``)
         .setTimestamp()
         message.channel.send(embed)
   }

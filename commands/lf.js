@@ -111,7 +111,7 @@ Usage: ${process.env.PREFIX}lf albums zuoa 90
 
       if (!existingUser) {
         return message.channel.send(
-          `Username not found. Please use -lf set to set your last.fm username.`
+          `Username not found. Please use z.lf set to set your last.fm username.`
         );
       }
       const {

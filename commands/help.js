@@ -7,35 +7,35 @@ module.exports.run = async (bot, message, args) => {
   .setColor(process.env.C_BLUE)
   .setTimestamp()
   .addField("\\🦩 Fun", `\`\`\`
--8ball      | Answers yes/no questions.
--say        | Repeats after you.
--coinflip   | Flips a coin for you.
--dog        | Fetches you a picture of a dog.
--cat        | Fetches you a picture of a cat.
+z.8ball      | Answers yes/no questions.
+z.say        | Repeats after you.
+z.coinflip   | Flips a coin for you.
+z.dog        | Fetches you a picture of a dog.
+z.cat        | Fetches you a picture of a cat.
 \`\`\``)
   .addField("\\📻 last.fm", `\`\`\`
--lf help    | Gives you more information on the last.fm.
--lf set     | Stores your last.fm username.
--lf delete  | Removes your last.fm username.
--lf info    | Shows last.fm account information.
--lf recent  | Shows the last 10 tracks.
--lf tracks  | Shows most played tracks.
--lf artists | Shows most played artists.
--fm         | Shows the current track or latest scrobble.
+z.lf help    | Gives you more information on the last.fm.
+z.lf set     | Stores your last.fm username.
+z.lf delete  | Removes your last.fm username.
+z.lf info    | Shows last.fm account information.
+z.lf recent  | Shows the last 10 tracks.
+z.lf tracks  | Shows most played tracks.
+z.lf artists | Shows most played artists.
+z.fm         | Shows the current track or latest scrobble.
 \`\`\`
 `)    
   .addField("\\🔨 Moderation", `\`\`\`
--ban        | Bans a mentioned user.
--kick       | Kicks a mentioned user.
--purge      | Mass-deletes messages.
--mute       | Mute a user for a certain amount of time.
--unmute     | Unmutes a user.
--jail       | Jail's a user.
--unjail     | Un-jails a user.
--warn       | Warn a user.
--warns      | Check a users warns.
--lock       | Locks a channel.
--unlock     | Unlocks a channel.
+z.ban        | Bans a mentioned user.
+z.kick       | Kicks a mentioned user.
+z.purge      | Mass-deletes messages.
+z.mute       | Mute a user for a certain amount of time.
+z.unmute     | Unmutes a user.
+z.jail       | Jail's a user.
+z.unjail     | Un-jails a user.
+z.warn       | Warn a user.
+z.warns      | Check a users warns.
+z.lock       | Locks a channel.
+z.unlock     | Unlocks a channel.
 \`\`\``)
 .addField("\\🔧 Utility", `\`\`\`
 -avatar     | Sends your or another users avatar.
