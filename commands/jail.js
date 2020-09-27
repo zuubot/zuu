@@ -5,8 +5,6 @@ dotenv.config()
 
 module.exports.run = async (bot, message, args) => {
 var jailrole = message.guild.roles.find(r => r.name === "Jailed");
-let reason = args[2]
-if (!reason) reason = "No reason provided."
   if(!jailrole){
     try{
         jailrole = await message.guild.createRole({
@@ -108,7 +106,6 @@ if (!reason) reason = "No reason provided."
   .setColor(process.env.C_RED)
   .addField(`Inmate:`, "<@" + tojail.id + ">")
   .addField(`Sentenced to:`, ms(ms(jailtime)))
-  .addField(`Reason:`, reason)
   jail.send(jembed)
 
   
