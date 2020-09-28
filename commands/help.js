@@ -42,8 +42,8 @@ z.avatar     | Sends your or another users avatar.
 z.botinfo    | Fetches info on the bot.
 z.userinfo   | Fetches info on a user.
 z.serverinfo | Fetches info on a server.
+z.invite     | Post's an invite link and other useful stuff.
 \`\`\``)
-  .setFooter(`Need more help? Go to zuubot.github.io and join our Discord.`)
 message.author.send(help);
 message.react("📬")
 }

@@ -23,7 +23,7 @@ var jailrole = message.guild.roles.find(r => r.name === "Jailed");
       let embed = new Discord.RichEmbed()
       .setColor(process.env.C_YELLOW)
       .setTitle(`Error`)
-      .setDescription(`Jailed role and channel were not found, so they were made.\nPlease set up permissions and a channel named jail then try again.`)
+      .setDescription(`Jailed role was not found, so they were made.\nPlease set up a channel named jail and permissions then try again.`)
       .setTimestamp()
       return message.channel.send(embed)
     }catch(e){
@@ -89,7 +89,7 @@ var jailrole = message.guild.roles.find(r => r.name === "Jailed");
     let jembed = new Discord.RichEmbed()
     .setColor(process.env.C_RED)
     .addField(`Inmate:`, "<@" + tojail.id + ">")
-    .addField(`Sentenced to:`, "Life")
+    .addField(`Sentenced to:`, "∞")
     jail.send(jembed)
 }
   
