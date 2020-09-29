@@ -21,6 +21,7 @@ z.lf info    | Shows last.fm account information.
 z.lf recent  | Shows the last 10 tracks.
 z.lf tracks  | Shows most played tracks.
 z.lf artists | Shows most played artists.
+z.lf chart   | Fetches your chart.
 z.fm         | Shows the current track or latest scrobble.
 \`\`\`
 `)    

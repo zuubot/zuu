@@ -23,6 +23,9 @@ module.exports.run = async (bot, message, args) => {
     fmUser = dbUser.lastFM;
     period = args[1];
   }
+  if (dbUser && args[0] !== 'chart') {
+    fmUser = dbUser.lastFM;
+  }
   if (args.length === 3) {
     fmUser = args[1];
     period = args[2];
@@ -59,13 +62,15 @@ Usage: ${process.env.PREFIX}lf artists zuoa week
 
 ${process.env.PREFIX}lf albums  | Shows most played albums
 Usage: ${process.env.PREFIX}lf albums zuoa 90
+
+${process.env.PREFIX}lf chart  | Shows most played albums
+Usage: ${process.env.PREFIX}lf chart week 3x3
 \`\`\``)
           .addField(
             'Command Paramaters',
-            '`week`, `month`, `90`, `180`, `year`, `all` (Default: all)\n**You don\'t need to put your last.fm username everytime if you\'ve set it with:**\n' + `\`${process.env.PREFIX}lf set\`` + `.`
+            '`week`, `month`, `90`, `180`, `year`, `all` (Default: all')
           )
           .setColor(process.env.C_BLUE)
-      );
     }
 
     case 'set': {
@@ -110,9 +115,12 @@ Usage: ${process.env.PREFIX}lf albums zuoa 90
         .value();
 
       if (!existingUser) {
-        return message.channel.send(
-          `Username not found. Please use z.lf set to set your last.fm username.`
-        );
+        let embed = new Discord.RichEmbed()
+        .setTitle(`Error`)
+        .setColor(process.env.C_RED)
+        .setDescription(`Username not found. Please use \`z.lf set\` to set your last.fm username.`)
+        .setTimestamp()
+        return message.channel.send(embed)
       }
       const {
         totalScrobbles,
@@ -214,8 +222,10 @@ Usage: ${process.env.PREFIX}lf albums zuoa 90
           .setColor(process.env.C_BLUE)
           .setFooter(`last.fm username: ${topArtists.author}`)
           .setTimestamp()
-      );
-    }
+      )
+    } 
+
+
     case "tal":
     case 'albums': {
       const topAlbums = await fetchUsersTopAlbums(
@@ -239,6 +249,78 @@ Usage: ${process.env.PREFIX}lf albums zuoa 90
           .setTimestamp()
       );
     }
+    
+    case 'chart': {
+      let dbUser = db
+      .get('users')
+      .find({ userID: message.author.id })
+      .value();
+    if (!dbUser) {
+      let embed = new Discord.RichEmbed()
+      .setTitle(`Error`)
+      .setColor(process.env.C_RED)
+      .setDescription(`Username not found. Please use \`z.lf set\` to set your last.fm username.`)
+      .setTimestamp()
+      return message.channel.send(embed)
+    }
+      let fmUser = dbUser.lastFM;
+      let size = args[2]
+      let time = args[1]
+      let link = `https://www.tapmusic.net/collage.php?user=${fmUser}&type=${time}&size=${size}&caption=true`
+
+    if (time == 'week') {
+      time = "7day"
+    }
+    else if(time == 'month') {
+      time = "month"
+    }
+    else if(time == '90') {
+      time = "3months"
+    }
+    else if(time == '180') {
+      time = "6months"
+    }
+    else if(time == 'year') {
+      time = "12months"
+    }
+    else if(time == 'all') {
+      time = "overall"
+    } else {
+    let embed = new Discord.RichEmbed()
+    .setTitle("Error")
+    .setDescription(`Invalid time.\nExample: \`z.lf chart week/month/3months/6months/12months/all 2x2\``)
+    .setColor(process.env.C_RED)
+    .setTimestamp()
+    return message.channel.send(embed)
+    }
+
+      if(size == '3x3') {
+        size = "3x3"
+    }
+      else if(size == '4x4') {
+        size = "4x4"
+    }
+      else if(size == '5x5') {
+        size = "5x5"
+    } else {
+      let embed = new Discord.RichEmbed()
+      .setTitle("Error")
+      .setDescription(`Invalid size.\nExample: \`z.lf chart week 3x3/4x4/5x5\``)
+      .setColor(process.env.C_RED)
+      .setTimestamp()
+      return message.channel.send(embed)
+    }
+
+        let embed = new Discord.RichEmbed()
+        .setAuthor(message.author.tag, message.author.avatarURL)
+        .setTitle(`Chart`)
+        .setImage(link)
+        .setTimestamp()
+        .setColor(process.env.C_BLUE)
+        .setFooter(`last.fm User: ` + fmUser)
+        return message.channel.send(embed)
+      } 
+        
 
     default: {
       return message.channel.send(

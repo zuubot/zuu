@@ -17,9 +17,12 @@ module.exports.run = async (bot, message, args) => {
       .find({ userID: message.author.id })
       .value();
     if (!dbUser) {
-      return message.channel.send(
-        `Username not found. Please use z.lf set to set your last.fm username.`
-      );
+      let embed = new Discord.RichEmbed()
+      .setTitle(`Error`)
+      .setColor(process.env.C_RED)
+      .setDescription(`Username not found. Please use \`z.lf set\` to set your last.fm username.`)
+      .setTimestamp()
+      return message.channel.send(embed)
     }
     fmUser = dbUser.lastFM;
   }
