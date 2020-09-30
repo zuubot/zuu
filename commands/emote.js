@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
     if(!emoji) {
         return message.channel.send(
             new Discord.RichEmbed()
-            .setTitle('Error.')
+            .setTitle('Error')
             .setDescription('Invalid emoji.')
             .setColor(process.env.C_RED)
             .setTimestamp()
@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
     if(!emoji.startsWith('<')) {
         return message.channel.send(
             new Discord.RichEmbed()
-            .setTitle('Error!')
+            .setTitle('Error')
             .setDescription('Invalid emoji.')
             .setColor(process.env.C_RED)
             .setTimestamp()
@@ -45,6 +45,7 @@ module.exports.run = async (bot, message, args) => {
             .setTitle(emojiname)
             .setURL(link)
             .setImage(link)
+            .setFooter("Requested by: " + message.author.tag)
             .setTimestamp()
             .setColor(process.env.C_BLUE)
         )
@@ -58,6 +59,8 @@ module.exports.run = async (bot, message, args) => {
             .setImage(link)
             .setTimestamp()
             .setColor(process.env.C_BLUE)
+            .setFooter("Requested by: " + message.author.tag)
+            .setTimestamp()
         )
     }
     } catch(error) {
@@ -71,5 +74,5 @@ module.exports.run = async (bot, message, args) => {
     }
     }
     module.exports.help = {
-        name: 'emoji'
+        name: 'e'
       };
