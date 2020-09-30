@@ -309,7 +309,7 @@ Usage: ${process.env.PREFIX}lf chart week 3x3
       .setTimestamp()
       return message.channel.send(embed)
     }
-        let link = `https://www.tapmusic.net/collage.php?user=${fmUser}&type=${time}&size=${size}&caption=true`
+        let link = `https://www.tapmusic.net/collage.php?user=${fmUser}&type=${time}&size=${size}`
         let embed = new Discord.RichEmbed()
         .setAuthor(message.author.tag, message.author.avatarURL)
         .setImage(link)
