@@ -56,7 +56,6 @@ module.exports.run = async (bot, message, args) => {
             .setTitle(emojiname)
             .setURL(link)
             .setImage(link)
-            .setTimestamp()
             .setColor(process.env.C_BLUE)
             .setFooter("Requested by: " + message.author.tag)
         )
