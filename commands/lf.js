@@ -265,27 +265,26 @@ Usage: ${process.env.PREFIX}lf chart week 3x3
     }
       let fmUser = dbUser.lastFM;
       let size = args[2]
-      let time = args[1]
-      let link = `http://www.tapmusic.net/collage.php?user=${fmUser}&type=${time}&size=${size}&caption=true`
 
-    if (time == 'week') {
-      time = "7day"
-    }
-    else if(time == 'month') {
-      time = "month"
-    }
-    else if(time == '90') {
-      time = "3months"
-    }
-    else if(time == '180') {
-      time = "6months"
-    }
-    else if(time == 'year') {
-      time = "12months"
-    }
-    else if(time == 'all') {
-      time = "overall"
-    } else {
+      let time = args[1]
+      if (time == 'week') {
+          time = "7day"
+      }
+      else if(time == 'month') {
+        time = "1month"
+      }
+      else if(time == '90') {
+        time = "3months"
+      }
+      else if(time == '180') {
+        time = "6months"
+      }
+      else if(time == 'year') {
+        time = "12months"
+      }
+      else if(time == 'all') {
+        time = "overall"
+      } else {
     let embed = new Discord.RichEmbed()
     .setTitle("Error")
     .setDescription(`Invalid time.\nExample: \`z.lf chart week/month/90/180/year/all 2x2\``)
@@ -310,14 +309,13 @@ Usage: ${process.env.PREFIX}lf chart week 3x3
       .setTimestamp()
       return message.channel.send(embed)
     }
-
+        let link = `https://www.tapmusic.net/collage.php?user=${fmUser}&type=${time}&size=${size}&caption=true`
         let embed = new Discord.RichEmbed()
         .setAuthor(message.author.tag, message.author.avatarURL)
-        .setTitle(`Chart`)
         .setImage(link)
         .setTimestamp()
         .setColor(process.env.C_BLUE)
-        .setFooter(`This may take a while to load. last.fm User: ` + fmUser)
+        .setFooter(`This may take a while to load.`)
         return message.channel.send(embed)
       } 
         
