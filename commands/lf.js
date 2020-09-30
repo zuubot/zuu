@@ -266,7 +266,7 @@ Usage: ${process.env.PREFIX}lf chart week 3x3
       let fmUser = dbUser.lastFM;
       let size = args[2]
       let time = args[1]
-      let link = `https://www.tapmusic.net/collage.php?user=${fmUser}&type=${time}&size=${size}&caption=true`
+      let link = `http://www.tapmusic.net/collage.php?user=${fmUser}&type=${time}&size=${size}&caption=true`
 
     if (time == 'week') {
       time = "7day"
@@ -288,7 +288,7 @@ Usage: ${process.env.PREFIX}lf chart week 3x3
     } else {
     let embed = new Discord.RichEmbed()
     .setTitle("Error")
-    .setDescription(`Invalid time.\nExample: \`z.lf chart week/month/3months/6months/12months/all 2x2\``)
+    .setDescription(`Invalid time.\nExample: \`z.lf chart week/month/90/180/year/all 2x2\``)
     .setColor(process.env.C_RED)
     .setTimestamp()
     return message.channel.send(embed)
@@ -317,7 +317,7 @@ Usage: ${process.env.PREFIX}lf chart week 3x3
         .setImage(link)
         .setTimestamp()
         .setColor(process.env.C_BLUE)
-        .setFooter(`last.fm User: ` + fmUser)
+        .setFooter(`This may take a while to load. last.fm User: ` + fmUser)
         return message.channel.send(embed)
       } 
         
