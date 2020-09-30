@@ -46,6 +46,7 @@ module.exports.run = async (bot, message, args) => {
             .setURL(link)
             .setImage(link)
             .setFooter("Requested by: " + message.author.tag)
+            .setTimestamp()
             .setColor(process.env.C_BLUE)
         )
     }
@@ -59,6 +60,7 @@ module.exports.run = async (bot, message, args) => {
             .setTimestamp()
             .setColor(process.env.C_BLUE)
             .setFooter("Requested by: " + message.author.tag)
+            .setTimestamp()
         )
     }
     } catch(error) {
@@ -72,5 +74,5 @@ module.exports.run = async (bot, message, args) => {
     }
     }
     module.exports.help = {
-        name: 'e'
+        name: 'emoji'
       };
