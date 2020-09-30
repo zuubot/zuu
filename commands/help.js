@@ -43,6 +43,7 @@ z.avatar     | Sends your or another users avatar.
 z.botinfo    | Fetches info on the bot.
 z.userinfo   | Fetches info on a user.
 z.serverinfo | Fetches info on a server.
+z.emote      | Fetches an emote and makes it bigger.
 z.invite     | Post's an invite link and other useful stuff.
 \`\`\``)
 message.author.send(help);
