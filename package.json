@@ -1,11 +1,11 @@
 {
-  "name": "lasty",
+  "name": "zuu",
   "version": "1.0.0",
-  "description": "LastFM and utility Discord bot",
+  "description": "",
   "main": "bot.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dxnter/lasty.git"
+    "url": "git+https://github.com/madebyzuoa/zuu"
   },
   "scripts": {
     "start": "nodemon -r esm bot.js --ignore db.json",
@@ -16,7 +16,7 @@
     "lastfm",
     "bot"
   ],
-  "author": "dxnter",
+  "author": "madebyzuoa",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^13.1.4",
